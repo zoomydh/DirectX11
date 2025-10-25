@@ -4,7 +4,11 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
+#include "../StudyEngine_SOURCE/stdApplication.h"
+
 #define MAX_LOADSTRING 100
+
+Application app;
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
@@ -26,7 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-
+    app.test();
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
@@ -42,15 +46,44 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+
+
+    // GetMessage(&msg, nullptr, 0, 0)
+    // 프로세스에서 발생한 메시지를 메시지 큐에서 가져오는 함수
+	// 메시지 큐에 메시지가 없으면 대기 상태에 들어감
+
+	// PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)
+	// 메시지 큐에서 메세지 유/무와 상관없이 함수가 리턴
+	// True : 메시지가 존재함, False : 메시지가 없음
+
+    while (true)
+    {
+        if(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            if (msg.message == WM_QUIT)
+                break;
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+			// 메시지가 없을 때 처리할 내용 작성
+            // 게임 로직 추가
+        }
+    }
+
+	// Original Source Code
+    /*while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-    }
+    }*/
 
     return (int) msg.wParam;
 }
