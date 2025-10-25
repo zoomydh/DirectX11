@@ -8,7 +8,7 @@
 
 #define MAX_LOADSTRING 100
 
-Application app;
+study::Application app;
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
@@ -30,7 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-    app.test();
+    
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
@@ -70,8 +70,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-			// 메시지가 없을 때 처리할 내용 작성
-            // 게임 로직 추가
+            app.Run();
         }
     }
 
@@ -133,6 +132,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   app.Intialize(hWnd);
    if (!hWnd)
    {
       return FALSE;
@@ -179,27 +179,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-			HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-			HBRUSH oldbrush = (HBRUSH)SelectObject(hdc, brush);
-
-            Rectangle(hdc, 100, 100, 200, 200);
-
-            SelectObject(hdc, oldbrush);
-			DeleteObject(brush);
-
-			HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-			HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-			Ellipse(hdc, 250, 100, 350, 200);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-			SelectObject(hdc, oldPen);
-			DeleteObject(redPen);
-
-			HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            oldbrush = (HBRUSH)SelectObject(hdc, grayBrush);
-
-			Rectangle(hdc, 400, 400, 500, 500);
-			SelectObject(hdc, oldPen);
 
             EndPaint(hWnd, &ps);
         }
