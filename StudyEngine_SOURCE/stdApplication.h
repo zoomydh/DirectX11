@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "stdGameObject.h"
 
 namespace study
 {
@@ -19,8 +20,8 @@ namespace study
 		HWND mHwnd;
 		HDC mHdc;
 		float mSpeed;
-		float mX;
-		float mY;
+
+		GameObject mPlayer;
 	};
 }
 
