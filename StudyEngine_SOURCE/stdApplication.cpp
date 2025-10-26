@@ -1,4 +1,5 @@
 #include "stdApplication.h"
+#include "stdInput.h"
 
 namespace study
 {
@@ -20,6 +21,7 @@ namespace study
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 		mPlayer.SetPosition(0.0f, 0.0f);
+		Input::Initailize();
 	}
 
 	void Application::Run()
@@ -31,7 +33,7 @@ namespace study
 
 	void Application::Update()
 	{
-		mSpeed += 0.01f;
+		Input::Update();
 
 		mPlayer.Update();
 	}

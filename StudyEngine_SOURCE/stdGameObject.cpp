@@ -1,8 +1,11 @@
 #include "stdGameObject.h"
+#include "stdInput.h"
 
 namespace study
 {
 	GameObject::GameObject()
+		: mX(0.0f)
+		, mY(0.0f)
 	{
 
 	}
@@ -14,22 +17,22 @@ namespace study
 
 	void GameObject::Update()
 	{
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		if (Input::Getkey(eKeyCode::A))
 		{
 			mX -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+		if (Input::Getkey(eKeyCode::D))
 		{
 			mX += 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
+		if (Input::Getkey(eKeyCode::W))
 		{
 			mY -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+		if (Input::Getkey(eKeyCode::S))
 		{
 			mY += 0.01f;
 		}
