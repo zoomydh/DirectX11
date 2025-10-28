@@ -22,28 +22,10 @@ namespace study
 
 	void Application::Intialize(HWND hwnd, UINT Width, UINT Height)
 	{
-		mHwnd = hwnd;
-		mHdc = GetDC(hwnd);
-
-		RECT rect = {0, 0, Width, Height};
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-		mWidth = rect.right - rect.left;
-		mHeight = rect.bottom - rect.top;
-
-		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		ShowWindow(mHwnd, true);
-
-		// Widow resolution에 맞는 BackBuffer 생성
-		mBackBitmap = CreateCompatibleBitmap(mHdc, Width, Height);
-		// BackBuffer를 가르킬 DC 생성
-		mBackHdc = CreateCompatibleDC(mHdc);
-
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
-
+		adjustWindowRect(hwnd, Width, Height);
+		createBuffer(Width, Height);
+		initializeEtc();
 		mPlayer.SetPosition(0.0f, 0.0f);
-		Input::Initailize();
-		Time::Initailize();
 	}
 
 	void Application::Run()
@@ -68,11 +50,43 @@ namespace study
 
 	void Application::Render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		Rectangle(mBackHdc, -1, -1, 1600, 900);
 		Time::Render(mBackHdc);
 		mPlayer.Render(mBackHdc);
 
 		// BackBuffer -> Original Buffer Copy
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+
+	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)
+	{
+		mHwnd = hwnd;
+		mHdc = GetDC(hwnd);
+
+		RECT rect = { 0, 0, width, height };
+		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+		mWidth = rect.right - rect.left;
+		mHeight = rect.bottom - rect.top;
+
+		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
+		ShowWindow(mHwnd, true);
+	}
+
+	void Application::createBuffer(UINT width, UINT height)
+	{
+		// Widow resolution에 맞는 BackBuffer 생성
+		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
+		// BackBuffer를 가르킬 DC 생성
+		mBackHdc = CreateCompatibleDC(mHdc);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
+		DeleteObject(oldBitmap);
+	}
+
+	void Application::initializeEtc()
+	{
+		Input::Initailize();
+		Time::Initailize();
 	}
 }
