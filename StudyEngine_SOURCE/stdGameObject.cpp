@@ -1,5 +1,6 @@
 #include "stdGameObject.h"
 #include "stdInput.h"
+#include "stdTime.h"
 
 namespace study
 {
@@ -17,24 +18,25 @@ namespace study
 
 	void GameObject::Update()
 	{
+		const int speed = 100.0f;
 		if (Input::Getkey(eKeyCode::A))
 		{
-			mX -= 0.01f;
+			mX -= speed * Time::GetDeltaTime();
 		}
 
 		if (Input::Getkey(eKeyCode::D))
 		{
-			mX += 0.01f;
+			mX += speed * Time::GetDeltaTime();
 		}
 
-		if (Input::Getkey(eKeyCode::Up))
+		if (Input::Getkey(eKeyCode::W))
 		{
-			mY -= 0.01f;
+			mY -= speed * Time::GetDeltaTime();
 		}
 
-		if (Input::Getkey(eKeyCode::Down))
+		if (Input::Getkey(eKeyCode::S))
 		{
-			mY += 0.01f;
+			mY += speed * Time::GetDeltaTime();
 		}
 	}
 

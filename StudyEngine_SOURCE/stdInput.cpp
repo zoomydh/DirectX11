@@ -2,7 +2,7 @@
 
 namespace study
 {
-	std::vector<Input::Key> Input::mKeys = {};
+	std::vector<Input::Key> Input::Keys = {};
 	
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -30,13 +30,13 @@ namespace study
 			key.bPressed = false;
 			key.state = ekeyState::NONE;
 			key.keyCode = (eKeyCode)i;
-			mKeys.push_back(key);
+			Keys.push_back(key);
 		}
 	}
 
 	void Input::updateKeys()
 	{
-		std::for_each(mKeys.begin(), mKeys.end(), [](Key& key) -> void
+		std::for_each(Keys.begin(), Keys.end(), [](Key& key) -> void
 			{
 				updateKey(key);
 			});

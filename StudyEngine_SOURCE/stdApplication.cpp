@@ -1,5 +1,6 @@
 #include "stdApplication.h"
 #include "stdInput.h"
+#include "stdTime.h"
 
 namespace study
 {
@@ -22,6 +23,7 @@ namespace study
 		mHdc = GetDC(hwnd);
 		mPlayer.SetPosition(0.0f, 0.0f);
 		Input::Initailize();
+		Time::Initailize();
 	}
 
 	void Application::Run()
@@ -34,6 +36,7 @@ namespace study
 	void Application::Update()
 	{
 		Input::Update();
+		Time::Update();
 
 		mPlayer.Update();
 	}
@@ -45,6 +48,7 @@ namespace study
 
 	void Application::Render()
 	{
+		Time::Render(mHdc);
 		mPlayer.Render(mHdc);
 	}
 }
