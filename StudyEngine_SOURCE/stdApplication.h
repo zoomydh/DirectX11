@@ -10,7 +10,7 @@ namespace study
 		Application();
 		~Application();
 
-		void Intialize(HWND hwnd);
+		void Intialize(HWND hwnd, UINT Width, UINT Height);
 		void Run();
 		void Update();
 		void LateUpdate();
@@ -19,7 +19,10 @@ namespace study
 	private:
 		HWND mHwnd;
 		HDC mHdc;
-		float mSpeed;
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+		UINT mWidth;
+		UINT mHeight;
 
 		GameObject mPlayer;
 	};
