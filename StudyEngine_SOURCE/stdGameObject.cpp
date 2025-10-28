@@ -27,12 +27,12 @@ namespace study
 			mX += 0.01f;
 		}
 
-		if (Input::Getkey(eKeyCode::W))
+		if (Input::Getkey(eKeyCode::Up))
 		{
 			mY -= 0.01f;
 		}
 
-		if (Input::Getkey(eKeyCode::S))
+		if (Input::Getkey(eKeyCode::Down))
 		{
 			mY += 0.01f;
 		}

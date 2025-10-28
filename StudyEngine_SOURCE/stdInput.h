@@ -36,6 +36,14 @@ namespace study
 		static bool GetkeyUp(eKeyCode key) { return mKeys[(UINT)key].state == ekeyState::UP; }
 		static bool Getkey(eKeyCode key) { return mKeys[(UINT)key].state == ekeyState::PRESSED; }
 
+	private:
+		static void createKeys();
+		static void updateKeys();
+		static void updateKey(Input::Key& key);
+		static bool isKeyDown(eKeyCode keyCode);
+		static void updateKeyDown(Input::Key& key);
+		static void updateKeyUp(Input::Key& key);
+
 	private :
 		static std::vector<Key> mKeys;
 	};
