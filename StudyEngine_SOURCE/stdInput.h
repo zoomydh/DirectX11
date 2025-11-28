@@ -33,8 +33,8 @@ namespace study
 		static void Update();
 
 		static bool GetKeyDown(eKeyCode key) { return Keys[(UINT)key].state == ekeyState::DOWN; }
-		static bool GetkeyUp(eKeyCode key) { return Keys[(UINT)key].state == ekeyState::UP; }
-		static bool Getkey(eKeyCode key) { return Keys[(UINT)key].state == ekeyState::PRESSED; }
+		static bool GetKeyUp(eKeyCode key) { return Keys[(UINT)key].state == ekeyState::UP; }
+		static bool GetKey(eKeyCode key) { return Keys[(UINT)key].state == ekeyState::PRESSED; }
 
 	private:
 		static void createKeys();

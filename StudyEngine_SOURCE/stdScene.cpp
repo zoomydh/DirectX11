@@ -18,31 +18,31 @@ namespace study
 
 	void Scene::Update()
 	{
-		for (GameObject * gameobj : mGameObjects )
+		for (GameObject * gameObj : mGameObjects )
 		{
-			gameobj->Update();
+			gameObj->Update();
 		}
 	}
 
 	void Scene::LateUpdate()
 	{
-		for (GameObject * gameobj : mGameObjects )
+		for (GameObject * gameObj : mGameObjects )
 		{
-			gameobj->LateUpdate();
+			gameObj->LateUpdate();
 		}
 	}
 
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject * gameobj : mGameObjects )
+		for (GameObject * gameObj : mGameObjects )
 		{
-			gameobj->Render(hdc);
+			gameObj->Render(hdc);
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObj)
+	void Scene::AddGameObject(GameObject* gameObject)
 	{
-		mGameObjects.push_back(gameObj);
+		mGameObjects.push_back(gameObject);
 	}
 }
 

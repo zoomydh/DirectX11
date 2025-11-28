@@ -1,5 +1,9 @@
 #include "stdPlayScene.h"
-#include "../StudyEngine_SOURCE/stdGameObject.h"
+#include "stdGameObject.h"
+#include "stdPlayer.h"
+#include "stdTransform.h"
+#include "stdSpriteRender.h"
+
 
 namespace study
 {
@@ -11,8 +15,38 @@ namespace study
 	}
 	void PlayScene::Initialize()
 	{
-		GameObject* obj = new GameObject();
-		AddGameObject(obj);
+		{
+			Player* pl = new Player();
+			Transform* tr = pl->AddComponent<Transform>();
+			tr->SetPos(800, 450);
+			tr->SetName(L"TR");
+			SpriteRender* sr = pl->AddComponent<SpriteRender>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
+		}
+
+		{
+			Player* pl = new Player();
+			Transform* tr = pl->AddComponent<Transform>();
+			tr->SetPos(300, 450);
+			tr->SetName(L"TR");
+			SpriteRender* sr = pl->AddComponent<SpriteRender>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
+		}
+
+		{
+			Player* pl = new Player();
+			Transform* tr = pl->AddComponent<Transform>();
+			tr->SetPos(100, 650);
+			tr->SetName(L"TR");
+			SpriteRender* sr = pl->AddComponent<SpriteRender>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
+		}
 	}
 	void PlayScene::Update()
 	{
