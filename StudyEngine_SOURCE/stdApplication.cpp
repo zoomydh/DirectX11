@@ -1,6 +1,7 @@
 #include "stdApplication.h"
 #include "stdInput.h"
 #include "stdTime.h"
+#include "stdSceneManager.h"
 
 namespace study
 {
@@ -20,12 +21,13 @@ namespace study
 
 	}
 
-	void Application::Intialize(HWND hwnd, UINT Width, UINT Height)
+	void Application::Initialize(HWND hwnd, UINT Width, UINT Height)
 	{
 		adjustWindowRect(hwnd, Width, Height);
 		createBuffer(Width, Height);
 		initializeEtc();
-		mPlayer.SetPosition(0.0f, 0.0f);
+
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -40,7 +42,7 @@ namespace study
 		Input::Update();
 		Time::Update();
 
-		mPlayer.Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
@@ -50,12 +52,22 @@ namespace study
 
 	void Application::Render()
 	{
-		Rectangle(mBackHdc, -1, -1, 1600, 900);
+		clearRenderTarget();
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
 		// BackBuffer -> Original Buffer Copy
-		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::clearRenderTarget()
+	{
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
+	}
+
+	void Application::copyRenderTarget(HDC src, HDC dest)
+	{
+		BitBlt(dest, 0, 0, mWidth, mHeight, src, 0, 0, SRCCOPY);
 	}
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height)

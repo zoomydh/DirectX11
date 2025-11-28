@@ -10,13 +10,15 @@ namespace study
 		Application();
 		~Application();
 
-		void Intialize(HWND hwnd, UINT Width, UINT Height);
+		void Initialize(HWND hwnd, UINT Width, UINT Height);
 		void Run();
 		void Update();
 		void LateUpdate();
 		void Render();
 
 	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC src, HDC dest);
 		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
 		void createBuffer(UINT width, UINT height);
 		void initializeEtc();
@@ -29,7 +31,7 @@ namespace study
 		UINT mWidth;
 		UINT mHeight;
 
-		GameObject mPlayer;
+		//std::vector<Scene*> mScenes;
 	};
 }
 

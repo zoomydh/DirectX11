@@ -5,6 +5,8 @@
 #include "Editor_Window.h"
 
 #include "../StudyEngine_SOURCE/stdApplication.h"
+#include "../StudyEngine_Window/stdLoadScenes.h"
+
 
 #define MAX_LOADSTRING 100
 
@@ -135,7 +137,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   app.Intialize(hWnd, width, height);
+   app.Initialize(hWnd, width, height);
    if (!hWnd)
    {
       return FALSE;
@@ -144,6 +146,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   //load Scenes
+   study::LoadScenes();
    return TRUE;
 }
 
