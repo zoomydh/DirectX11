@@ -6,6 +6,7 @@
 #include "stdInput.h"
 #include "stdTitleScene.h"
 #include "stdSceneManager.h"
+#include "stdObject.h"
 
 namespace study
 {
@@ -17,18 +18,11 @@ namespace study
 	}
 	void PlayScene::Initialize()
 	{
-
-		{
-			bg = new Player();
-			Transform* tr = bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
-			tr->SetName(L"TR");
-			SpriteRender* sr = bg->AddComponent<SpriteRender>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"E:\\DirectX12_Study\\StudyEngine\\Resources\\CloudOcean.png");
-			AddGameObject(bg, eLayerType::BACKGROUND);
-		}
-
+		bg = object::Instantiate<Player>(enums::eLayerType::BACKGROUND, Vector2(100.0f, 100.0f));
+		SpriteRender* sr = bg->AddComponent<SpriteRender>();
+		sr->ImageLoad(L"E:\\DirectX12_Study\\StudyEngine\\Resources\\CloudOcean.png");
+		// game object 생성 후에 layer와 game object init 함수 호출
+		Scene::Initialize();
 	}
 	void PlayScene::Update()
 	{
@@ -56,7 +50,7 @@ namespace study
 
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
+		//Transform* tr = bg->GetComponent<Transform>();
+		//tr->SetPosition(Vector2(0, 0));
 	}
 }

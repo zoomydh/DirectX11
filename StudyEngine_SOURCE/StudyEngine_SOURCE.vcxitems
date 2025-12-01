@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdScene.h" />

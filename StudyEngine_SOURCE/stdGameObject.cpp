@@ -1,12 +1,13 @@
 #include "stdGameObject.h"
 #include "stdInput.h"
 #include "stdTime.h"
+#include "stdTransform.h"
 
 namespace study
 {
 	GameObject::GameObject()
 	{
-
+		InitializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -48,6 +49,11 @@ namespace study
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::InitializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 
 } // namespace study

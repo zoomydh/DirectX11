@@ -45,6 +45,9 @@ namespace study
 		}
 
 	private:
+		void InitializeTransform();
+
+	private:
 		std::vector<Component*> mComponents;
 	};
 }

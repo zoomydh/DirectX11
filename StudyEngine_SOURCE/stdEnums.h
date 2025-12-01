@@ -1,6 +1,6 @@
 #pragma once
 
-namespace study
+namespace study::enums
 {
 	enum class eLayerType
 	{

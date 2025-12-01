@@ -5,11 +5,7 @@ namespace study
 	Scene::Scene()
 		: mLayers{}
 	{
-		mLayers.resize((UINT)eLayerType::MAX);
-		for (size_t i = 0; i < (UINT)eLayerType::MAX; i++)
-		{
-			mLayers[i] = new Layer();
-		}
+		createLayers();
 	}
 
 	Scene::~Scene()
@@ -56,9 +52,18 @@ namespace study
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObj, eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::createLayers()
+	{
+		mLayers.resize((UINT)enums::eLayerType::MAX);
+		for (size_t i = 0; i < (UINT)enums::eLayerType::MAX; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 
 	void Scene::OnEnter()
