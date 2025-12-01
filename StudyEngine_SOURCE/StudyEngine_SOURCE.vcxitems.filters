@@ -30,6 +30,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)stdApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h" />
@@ -64,6 +69,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -83,6 +96,9 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{6e14db3a-a997-4e6d-aba7-5c83d330e7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{624ca8c2-698d-4f14-aaac-a858c6e737c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -26,7 +26,7 @@ namespace study
 	{
 		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
 		{
-			Key key = { };
+			Key key = {};
 			key.bPressed = false;
 			key.state = ekeyState::NONE;
 			key.keyCode = (eKeyCode)i;

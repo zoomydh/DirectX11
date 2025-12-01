@@ -22,10 +22,12 @@
     <ClInclude Include="stdLoadScenes.h" />
     <ClInclude Include="stdPlayer.h" />
     <ClInclude Include="stdPlayScene.h" />
+    <ClInclude Include="stdTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdPlayer.cpp" />
     <ClCompile Include="stdPlayScene.cpp" />
+    <ClCompile Include="stdTitleScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

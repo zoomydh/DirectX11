@@ -19,11 +19,15 @@ namespace study {
 
 		static Scene* LoadScene(const std::wstring& name)
 		{
-			static std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);
+			if (mActiveScene)
+				mActiveScene->OnExit();
+			std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);
 			if (iter == mScene.end())
 				return nullptr;
-
+			
 			mActiveScene = iter->second;
+			std::wstring title = iter->first;
+			mActiveScene->OnEnter();
 
 			return iter->second;
 		}

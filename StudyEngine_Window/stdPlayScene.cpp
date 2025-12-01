@@ -3,7 +3,9 @@
 #include "stdPlayer.h"
 #include "stdTransform.h"
 #include "stdSpriteRender.h"
-
+#include "stdInput.h"
+#include "stdTitleScene.h"
+#include "stdSceneManager.h"
 
 namespace study
 {
@@ -17,14 +19,14 @@ namespace study
 	{
 
 		{
-			Player* bg = new Player();
+			bg = new Player();
 			Transform* tr = bg->AddComponent<Transform>();
 			tr->SetPos(Vector2(0, 0));
 			tr->SetName(L"TR");
 			SpriteRender* sr = bg->AddComponent<SpriteRender>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(L"E:\\DirectX12_Study\\StudyEngine\\Resources\\CloudOcean.png");
-			AddGameObject(bg);
+			AddGameObject(bg, eLayerType::BACKGROUND);
 		}
 
 	}
@@ -35,9 +37,26 @@ namespace study
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 0, 0, str, 10);
+	}
+
+	void PlayScene::OnEnter()
+	{
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }
