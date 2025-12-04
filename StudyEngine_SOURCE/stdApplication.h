@@ -16,6 +16,8 @@ namespace study
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
+
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC src, HDC dest);

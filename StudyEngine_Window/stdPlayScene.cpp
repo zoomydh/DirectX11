@@ -1,12 +1,14 @@
 #include "stdPlayScene.h"
-#include "stdGameObject.h"
+#include "../StudyEngine_SOURCE/stdGameObject.h"
 #include "stdPlayer.h"
-#include "stdTransform.h"
-#include "stdSpriteRender.h"
-#include "stdInput.h"
+#include "../StudyEngine_SOURCE/stdTransform.h"
+#include "../StudyEngine_SOURCE/stdSpriteRender.h"
+#include "../StudyEngine_SOURCE/stdInput.h"
 #include "stdTitleScene.h"
-#include "stdSceneManager.h"
-#include "stdObject.h"
+#include "../StudyEngine_SOURCE/stdSceneManager.h"
+#include "../StudyEngine_SOURCE/stdObject.h"
+#include "../StudyEngine_SOURCE/stdTexture.h"
+#include "../StudyEngine_SOURCE/stdResources.h"
 
 namespace study
 {
@@ -18,10 +20,14 @@ namespace study
 	}
 	void PlayScene::Initialize()
 	{
-		bg = object::Instantiate<Player>(enums::eLayerType::BACKGROUND, Vector2(100.0f, 100.0f));
+		// game object 만들기 전에 resource 전부 load 해두면 좋다.
+
+		bg = object::Instantiate<Player>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
 		SpriteRender* sr = bg->AddComponent<SpriteRender>();
-		sr->ImageLoad(L"E:\\DirectX12_Study\\StudyEngine\\Resources\\CloudOcean.png");
-		// game object 생성 후에 layer와 game object init 함수 호출
+		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
+
+		// game object 생성 후에 layer와 game object의 init 함수 호출
 		Scene::Initialize();
 	}
 	void PlayScene::Update()

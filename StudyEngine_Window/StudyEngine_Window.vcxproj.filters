@@ -21,6 +21,7 @@
     <ClInclude Include="stdTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="stdLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdPlayScene.cpp">

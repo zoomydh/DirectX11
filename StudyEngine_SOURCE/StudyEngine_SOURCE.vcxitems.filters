@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdSpriteRender.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -30,15 +28,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)stdApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdSpriteRender.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdTransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -69,8 +78,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -79,6 +86,21 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)stdObject.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdTransform.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +124,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{624ca8c2-698d-4f14-aaac-a858c6e737c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{e092dd30-d46e-464b-829e-290017f7d1da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{382d5d36-7c09-4352-a077-2555908e1480}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

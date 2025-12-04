@@ -11,4 +11,12 @@ namespace study::enums
 		PLAYER,
 		MAX = 16,
 	};
+
+	enum class eResourceType
+	{
+		TEXTURE,
+		AUDIOCLIP,
+		PREFAB,
+		END,
+	};
 }

@@ -6,6 +6,7 @@
 
 #include "../StudyEngine_SOURCE/stdApplication.h"
 #include "../StudyEngine_Window/stdLoadScenes.h"
+#include "../StudyEngine_Window/stdLoadResources.h"
 
 
 #define MAX_LOADSTRING 100
@@ -153,6 +154,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    //load Scenes
+   study::LoadResources();
    study::LoadScenes();
    return TRUE;
 }

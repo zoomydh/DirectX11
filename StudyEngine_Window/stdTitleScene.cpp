@@ -1,7 +1,7 @@
 #include "stdTitleScene.h"
-#include "stdInput.h"
+#include "../StudyEngine_SOURCE/stdInput.h"
 #include "stdPlayScene.h"
-#include "stdSceneManager.h"
+#include "../StudyEngine_SOURCE/stdSceneManager.h"
 
 namespace study
 {

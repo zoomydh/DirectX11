@@ -1,7 +1,7 @@
 #include "stdPlayer.h"
-#include "stdInput.h"
-#include "stdTransform.h"
-#include "stdTime.h"
+#include "../StudyEngine_SOURCE/stdInput.h"
+#include "../StudyEngine_SOURCE/stdTransform.h"
+#include "../StudyEngine_SOURCE/stdTime.h"
 
 namespace study
 {
