@@ -12,6 +12,7 @@
 #include "stdPlayerScript.h"
 #include "../StudyEngine_SOURCE/stdCamera.h"
 #include "../StudyEngine_SOURCE/stdRender.h"
+#include "../StudyEngine_SOURCE/stdAnimator.h"
 
 namespace study
 {
@@ -31,12 +32,15 @@ namespace study
 
 		// game object 만들기 전에 resource 전부 load 해두면 좋다.
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::PLAYER/*, Vector2(100.0f, 100.0f)*/);
-		SpriteRender* sr = mPlayer->AddComponent<SpriteRender>();
-		sr->SetSize(Vector2(3.0f, 3.0f));
+		//SpriteRender* sr = mPlayer->AddComponent<SpriteRender>();
+		//sr->SetSize(Vector2(3.0f, 3.0f));
 		mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"PackMan");
-		sr->SetTexture(pactex);
+		graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"Cat");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"CatFrontMove", pactex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->PlayAnimation(L"CatFrontMove", true);
+		//sr->SetTexture(pactex);
 		
 
 		GameObject * bg = object::Instantiate<GameObject>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);

@@ -6,6 +6,7 @@ namespace study::enums
 	{
 		TRANSFORM,
 		SPRITERENDERER,
+		ANIMATOR,
 		SCRIPT,
 		CAMERA,
 		END,
@@ -25,6 +26,7 @@ namespace study::enums
 	{
 		TEXTURE,
 		AUDIOCLIP,
+		ANIMATION,
 		PREFAB,
 		END,
 	};

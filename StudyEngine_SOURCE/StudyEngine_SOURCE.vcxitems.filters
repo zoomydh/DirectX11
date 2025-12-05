@@ -55,6 +55,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)stdRender.cpp">
       <Filter>Render</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -120,6 +122,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdRender.h">
       <Filter>Render</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
