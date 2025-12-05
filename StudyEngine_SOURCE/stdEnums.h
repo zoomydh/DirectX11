@@ -2,6 +2,15 @@
 
 namespace study::enums
 {
+	enum class eComponentType
+	{
+		TRANSFORM,
+		SPRITERENDERER,
+		SCRIPT,
+		CAMERA,
+		END,
+	};
+
 	enum class eLayerType
 	{
 		NONE,

@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{706ab2c0-a07c-4813-89e5-302bf300feef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{6eb91b64-1c4d-440f-8c56-74c838360136}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdLoadScenes.h">
@@ -22,6 +25,9 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="stdLoadResources.h" />
+    <ClInclude Include="stdPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdPlayScene.cpp">
@@ -32,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="stdTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="stdPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

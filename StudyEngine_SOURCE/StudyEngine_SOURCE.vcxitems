@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdEnums.h" />
@@ -24,10 +25,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdRender.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)stdTime.h" />
@@ -35,16 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)stdApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdRender.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdSpriteRender.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)stdTime.cpp" />

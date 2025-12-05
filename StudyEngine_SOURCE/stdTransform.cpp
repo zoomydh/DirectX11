@@ -3,6 +3,7 @@
 namespace study
 {
 	Transform::Transform()
+		: Component(enums::eComponentType::TRANSFORM)
 	{
 	}
 	Transform::~Transform()

@@ -40,11 +40,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)stdTexture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)stdSpriteRender.cpp">
-      <Filter>Component</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdScript.cpp">
+      <Filter>Component\Script</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)stdTransform.cpp">
-      <Filter>Component</Filter>
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdSpriteRender.cpp">
+      <Filter>Component\SpriteRender</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)stdRender.cpp">
+      <Filter>Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,11 +105,20 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)stdTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h">
-      <Filter>Component</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdScript.h">
+      <Filter>Component\Script</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)stdTransform.h">
-      <Filter>Component</Filter>
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdSpriteRender.h">
+      <Filter>Component\SpriteRender</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)stdRender.h">
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +137,6 @@
     <Filter Include="Helpers">
       <UniqueIdentifier>{81d32c26-acc8-4b2b-bf79-bff7ff299fd7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="High Level Interface">
-      <UniqueIdentifier>{6e14db3a-a997-4e6d-aba7-5c83d330e7ba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{624ca8c2-698d-4f14-aaac-a858c6e737c9}</UniqueIdentifier>
     </Filter>
@@ -130,6 +145,24 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{382d5d36-7c09-4352-a077-2555908e1480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{f619b372-b761-439e-86c5-7440c4a1f725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{f61ab3eb-7467-4d4c-8abf-1e33132f7004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRender">
+      <UniqueIdentifier>{05c9dcb3-323b-4b46-b100-f32fc0aedddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{ea2ef353-010f-406d-b21a-8dca8c4a9508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{30a0857c-0911-493b-92e7-38778a3cdc04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{6e14db3a-a997-4e6d-aba7-5c83d330e7ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

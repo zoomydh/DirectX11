@@ -2,11 +2,12 @@
 #include "stdGameObject.h"
 #include "stdTransform.h"
 #include "stdTexture.h"
+#include "stdRender.h"
 
 namespace study 
 {
 	SpriteRender::SpriteRender()
-		: Component(),
+		: Component(enums::eComponentType::SPRITERENDERER),
 		mTexture(nullptr),
 		mSize(Vector2::One)
 	{
@@ -38,10 +39,9 @@ namespace study
 		if (mTexture == nullptr)
 			assert(false);
 
-
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-
+		pos = Render::mainCamera->CalucatePosition(pos);
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::BMP)
 		{
 			TransparentBlt(hdc, pos.x, pos.y, 

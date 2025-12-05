@@ -9,6 +9,9 @@
 #include "../StudyEngine_SOURCE/stdObject.h"
 #include "../StudyEngine_SOURCE/stdTexture.h"
 #include "../StudyEngine_SOURCE/stdResources.h"
+#include "stdPlayerScript.h"
+#include "../StudyEngine_SOURCE/stdCamera.h"
+#include "../StudyEngine_SOURCE/stdRender.h"
 
 namespace study
 {
@@ -20,12 +23,29 @@ namespace study
 	}
 	void PlayScene::Initialize()
 	{
-		// game object 만들기 전에 resource 전부 load 해두면 좋다.
+		//main camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::NONE, Vector2(344.0f, 442.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		Render::mainCamera = cameraComp;
+		//camera->AddComponent<PlayerScript>();
 
-		bg = object::Instantiate<Player>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
-		SpriteRender* sr = bg->AddComponent<SpriteRender>();
-		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
-		sr->SetTexture(bg);
+		// game object 만들기 전에 resource 전부 load 해두면 좋다.
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::PLAYER/*, Vector2(100.0f, 100.0f)*/);
+		SpriteRender* sr = mPlayer->AddComponent<SpriteRender>();
+		sr->SetSize(Vector2(3.0f, 3.0f));
+		mPlayer->AddComponent<PlayerScript>();
+
+		graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"PackMan");
+		sr->SetTexture(pactex);
+		
+
+		GameObject * bg = object::Instantiate<GameObject>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
+		SpriteRender* bgsr = bg->AddComponent<SpriteRender>();
+		bgsr->SetSize(Vector2(3.0f, 3.0f));
+		//bg->AddComponent<PlayerScript>();
+
+		graphics::Texture* bgtex = Resources::Find<graphics::Texture>(L"Map");
+		bgsr->SetTexture(bgtex);
 
 		// game object 생성 후에 layer와 game object의 init 함수 호출
 		Scene::Initialize();
@@ -46,8 +66,8 @@ namespace study
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		wchar_t str[50] = L"Play Scene";
-		TextOut(hdc, 0, 0, str, 10);
+		//wchar_t str[50] = L"Play Scene";
+		//TextOut(hdc, 0, 0, str, 10);
 	}
 
 	void PlayScene::OnEnter()

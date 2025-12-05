@@ -7,6 +7,7 @@ namespace study
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::END);
 		InitializeTransform();
 	}
 
@@ -23,6 +24,8 @@ namespace study
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Initialize();
 		}
 	}
@@ -31,6 +34,8 @@ namespace study
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
 	}
@@ -39,6 +44,8 @@ namespace study
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 	}
@@ -47,6 +54,8 @@ namespace study
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Render(hdc);
 		}
 	}
