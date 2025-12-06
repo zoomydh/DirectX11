@@ -10,6 +10,8 @@ namespace study
 		Resources::Load<graphics::Texture>(L"PackMan", L"..\\Resources\\img\\pacman\\0.png");
 		Resources::Load<graphics::Texture>(L"Chicken", L"..\\Resources\\chicken.bmp");
 		Resources::Load<graphics::Texture>(L"Cat", L"..\\Resources\\catAlpha.bmp");
+		Resources::Load<graphics::Texture>(L"Bubble", L"..\\Resources\\bubble.png");
+		Resources::Load<graphics::Texture>(L"MapleEffect", L"..\\Resources\\ezgif.com-gif-maker.png");
 	}
 }
 

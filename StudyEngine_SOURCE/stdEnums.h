@@ -19,6 +19,7 @@ namespace study::enums
 		//TREE,
 		//CHARACTER,
 		PLAYER,
+		PARTICLE,
 		MAX = 16,
 	};
 

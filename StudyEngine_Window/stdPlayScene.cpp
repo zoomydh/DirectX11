@@ -38,10 +38,17 @@ namespace study
 
 		graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"CatFrontMove", pactex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->PlayAnimation(L"CatFrontMove", true);
+		animator->CreateAnimation(L"DownWalk", pactex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"RightWalk", pactex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"UpWalk", pactex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"LeftWalk", pactex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"SitDown", pactex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->PlayAnimation(L"SitDown", false);
 		//sr->SetTexture(pactex);
 		
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);	
 
 		GameObject * bg = object::Instantiate<GameObject>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
 		SpriteRender* bgsr = bg->AddComponent<SpriteRender>();
@@ -52,6 +59,12 @@ namespace study
 		bgsr->SetTexture(bgtex);
 
 		// game object 생성 후에 layer와 game object의 init 함수 호출
+		GameObject* part = object::Instantiate<GameObject>(enums::eLayerType::PARTICLE, Vector2(344.0f, 442.0f));
+		graphics::Texture* parttex = Resources::Find<graphics::Texture>(L"MapleEffect");
+		Animator* partAnimator = part->AddComponent<Animator>();
+		partAnimator->CreateAnimation(L"MapleEffectAnim", parttex, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
+		partAnimator->PlayAnimation(L"MapleEffectAnim", true);
+
 		Scene::Initialize();
 	}
 	void PlayScene::Update()

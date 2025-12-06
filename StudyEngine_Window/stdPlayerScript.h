@@ -6,6 +6,14 @@ namespace study
 	class PlayerScript : public Script
 	{
 	public:
+		enum class eState
+		{
+			SITDOWN,
+			WALK,
+			SLEEP,
+			ATTACK
+		};
+
 		PlayerScript();
 		~PlayerScript();
 		void Initialize() override;
@@ -14,6 +22,12 @@ namespace study
 		void Render(HDC hdc)  override;
 
 	private:
+		void sitDOwn();
+		void move();
+
+	private:
+		eState mState;
+		class Animator* mAnimator;
 	};
 }
 
