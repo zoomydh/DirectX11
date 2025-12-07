@@ -18,6 +18,7 @@ namespace study::enums
 		BACKGROUND,
 		//TREE,
 		//CHARACTER,
+		ENEMY,
 		PLAYER,
 		PARTICLE,
 		MAX = 16,

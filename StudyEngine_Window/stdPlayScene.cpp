@@ -13,6 +13,8 @@
 #include "../StudyEngine_SOURCE/stdCamera.h"
 #include "../StudyEngine_SOURCE/stdRender.h"
 #include "../StudyEngine_SOURCE/stdAnimator.h"
+#include "stdEnemy.h"
+#include "stdEnemyScript.h"
 
 namespace study
 {
@@ -64,6 +66,20 @@ namespace study
 		Animator* partAnimator = part->AddComponent<Animator>();
 		partAnimator->CreateAnimation(L"MapleEffectAnim", parttex, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
 		partAnimator->PlayAnimation(L"MapleEffectAnim", true);
+
+		Enemy* enemy = object::Instantiate<Enemy>(enums::eLayerType::ENEMY);
+		enemy->AddComponent<EnemyScript>();
+		graphics::Texture* cattex = Resources::Find<graphics::Texture>(L"Cat");
+		Animator* enemeyanimator = enemy->AddComponent<Animator>();
+		enemeyanimator->CreateAnimation(L"DownWalk", cattex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->CreateAnimation(L"RightWalk", cattex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->CreateAnimation(L"UpWalk", cattex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->CreateAnimation(L"LeftWalk", cattex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->CreateAnimation(L"SitDown", cattex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->CreateAnimation(L"LayDown", cattex, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		enemeyanimator->PlayAnimation(L"SitDown", false);
+		enemy->GetComponent<Transform>()->SetPosition(Vector2(50.0f, 50.0f));
+		enemy->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 		Scene::Initialize();
 	}

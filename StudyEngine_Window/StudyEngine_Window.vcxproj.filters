@@ -28,6 +28,12 @@
     <ClInclude Include="stdPlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="stdEnemyScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="stdEnemy.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdPlayScene.cpp">
@@ -41,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="stdPlayerScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="stdEnemyScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="stdEnemy.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

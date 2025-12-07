@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stdEnemy.h" />
+    <ClInclude Include="stdEnemyScript.h" />
     <ClInclude Include="stdLoadResources.h" />
     <ClInclude Include="stdLoadScenes.h" />
     <ClInclude Include="stdPlayer.h" />
@@ -27,6 +29,8 @@
     <ClInclude Include="stdTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stdEnemy.cpp" />
+    <ClCompile Include="stdEnemyScript.cpp" />
     <ClCompile Include="stdPlayer.cpp" />
     <ClCompile Include="stdPlayerScript.cpp" />
     <ClCompile Include="stdPlayScene.cpp" />
