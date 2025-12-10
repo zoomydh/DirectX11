@@ -8,7 +8,7 @@
 namespace study
 {
 	PlayerScript::PlayerScript()
-		: mState(eState::SITDOWN)
+		: mState(eState::IDLE)
 		, mAnimator(nullptr)
 	{
 	}
@@ -27,13 +27,16 @@ namespace study
 
 		switch (mState)
 		{
-		case study::PlayerScript::eState::SITDOWN:
-			sitDOwn();
+		case study::PlayerScript::eState::IDLE:
+			idle();
 			break;
 		case study::PlayerScript::eState::WALK:
 			move();
 			break;
 		case study::PlayerScript::eState::SLEEP:
+			break;
+		case study::PlayerScript::eState::GIVEWATER:
+			givewater();
 			break;
 		case study::PlayerScript::eState::ATTACK:
 			break;
@@ -47,32 +50,16 @@ namespace study
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::sitDOwn()
+	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::Right))
+		if (Input::GetKey(eKeyCode::LButton))
 		{
-			mState = eState::WALK;
-			mAnimator->PlayAnimation(L"RightWalk");
-		}
-
-		if (Input::GetKey(eKeyCode::Left))
-		{
-			mState = eState::WALK;
-			mAnimator->PlayAnimation(L"LeftWalk");
-		}
-
-		if (Input::GetKey(eKeyCode::Up))
-		{
-			mState = eState::WALK;
-			mAnimator->PlayAnimation(L"UpWalk");
-		}
-
-		if (Input::GetKey(eKeyCode::Down))
-		{
-			mState = eState::WALK;
-			mAnimator->PlayAnimation(L"DownWalk");
+			mState = eState::GIVEWATER;
+			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+			Vector2 mousePos = Input::GetMousePosition();
 		}
 	}
+
 	void PlayerScript::move()
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
@@ -95,8 +82,17 @@ namespace study
 		if (Input::GetKeyUp(eKeyCode::Right) || Input::GetKeyUp(eKeyCode::Left) ||
 			Input::GetKeyUp(eKeyCode::Up) || Input::GetKeyUp(eKeyCode::Down))
 		{
-			mState = eState::SITDOWN;
-			mAnimator->PlayAnimation(L"SitDown", false);
+			mState = eState::IDLE;
+			mAnimator->PlayAnimation(L"Idle", false);
+		}
+	}
+
+	void PlayerScript::givewater()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::IDLE;
+			mAnimator->PlayAnimation(L"Idle", false);
 		}
 	}
 }

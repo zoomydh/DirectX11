@@ -38,48 +38,52 @@ namespace study
 		//sr->SetSize(Vector2(3.0f, 3.0f));
 		mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"Cat");
+		//graphics::Texture* pactex = Resources::Find<graphics::Texture>(L"Cat");
+		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"DownWalk", pactex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"RightWalk", pactex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"UpWalk", pactex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"LeftWalk", pactex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"SitDown", pactex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->PlayAnimation(L"SitDown", false);
+		animator->CreateAnimation(L"Idle", playerTex, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+		animator->CreateAnimation(L"FrontGiveWater", playerTex, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
+		//animator->CreateAnimation(L"DownWalk", pactex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//animator->CreateAnimation(L"RightWalk", pactex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//animator->CreateAnimation(L"UpWalk", pactex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//animator->CreateAnimation(L"LeftWalk", pactex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//animator->CreateAnimation(L"SitDown", pactex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//animator->PlayAnimation(L"SitDown", false);
+		animator->PlayAnimation(L"Idle", false);
 		//sr->SetTexture(pactex);
 		
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);	
 
-		GameObject * bg = object::Instantiate<GameObject>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
-		SpriteRender* bgsr = bg->AddComponent<SpriteRender>();
-		bgsr->SetSize(Vector2(3.0f, 3.0f));
+		//GameObject * bg = object::Instantiate<GameObject>(enums::eLayerType::BACKGROUND/*, Vector2(100.0f, 100.0f)*/);
+		//SpriteRender* bgsr = bg->AddComponent<SpriteRender>();
+		//bgsr->SetSize(Vector2(3.0f, 3.0f));
 		//bg->AddComponent<PlayerScript>();
 
-		graphics::Texture* bgtex = Resources::Find<graphics::Texture>(L"Map");
-		bgsr->SetTexture(bgtex);
+		//graphics::Texture* bgtex = Resources::Find<graphics::Texture>(L"Map");
+		//bgsr->SetTexture(bgtex);
 
 		// game object 생성 후에 layer와 game object의 init 함수 호출
-		GameObject* part = object::Instantiate<GameObject>(enums::eLayerType::PARTICLE, Vector2(344.0f, 442.0f));
-		graphics::Texture* parttex = Resources::Find<graphics::Texture>(L"MapleEffect");
-		Animator* partAnimator = part->AddComponent<Animator>();
-		partAnimator->CreateAnimation(L"MapleEffectAnim", parttex, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
-		partAnimator->PlayAnimation(L"MapleEffectAnim", true);
+		//GameObject* part = object::Instantiate<GameObject>(enums::eLayerType::PARTICLE, Vector2(344.0f, 442.0f));
+		//graphics::Texture* parttex = Resources::Find<graphics::Texture>(L"MapleEffect");
+		//Animator* partAnimator = part->AddComponent<Animator>();
+		//partAnimator->CreateAnimation(L"MapleEffectAnim", parttex, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
+		//partAnimator->PlayAnimation(L"MapleEffectAnim", true);
 
-		Enemy* enemy = object::Instantiate<Enemy>(enums::eLayerType::ENEMY);
-		enemy->AddComponent<EnemyScript>();
-		graphics::Texture* cattex = Resources::Find<graphics::Texture>(L"Cat");
-		Animator* enemeyanimator = enemy->AddComponent<Animator>();
-		enemeyanimator->CreateAnimation(L"DownWalk", cattex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->CreateAnimation(L"RightWalk", cattex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->CreateAnimation(L"UpWalk", cattex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->CreateAnimation(L"LeftWalk", cattex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->CreateAnimation(L"SitDown", cattex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->CreateAnimation(L"LayDown", cattex, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		enemeyanimator->PlayAnimation(L"SitDown", false);
-		enemy->GetComponent<Transform>()->SetPosition(Vector2(50.0f, 50.0f));
-		enemy->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//Enemy* enemy = object::Instantiate<Enemy>(enums::eLayerType::ENEMY);
+		//enemy->AddComponent<EnemyScript>();
+		//graphics::Texture* cattex = Resources::Find<graphics::Texture>(L"Cat");
+		//Animator* enemeyanimator = enemy->AddComponent<Animator>();
+		//enemeyanimator->CreateAnimation(L"DownWalk", cattex, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->CreateAnimation(L"RightWalk", cattex, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->CreateAnimation(L"UpWalk", cattex, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->CreateAnimation(L"LeftWalk", cattex, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->CreateAnimation(L"SitDown", cattex, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->CreateAnimation(L"LayDown", cattex, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//enemeyanimator->PlayAnimation(L"SitDown", false);
+		//enemy->GetComponent<Transform>()->SetPosition(Vector2(50.0f, 50.0f));
+		//enemy->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 		Scene::Initialize();
 	}

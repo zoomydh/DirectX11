@@ -1,8 +1,12 @@
 #include "stdInput.h"
+#include "stdApplication.h"
+
+extern study::Application app;
 
 namespace study
 {
 	std::vector<Input::Key> Input::Keys = {};
+	math::Vector2 Input::mMousePos = math::Vector2::One;
 	
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -10,6 +14,7 @@ namespace study
 		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 		VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,
+		VK_LBUTTON, VK_MBUTTON, VK_RBUTTON,
 	};
 	
 	void Input::Initailize()
@@ -44,13 +49,19 @@ namespace study
 
 	void Input::updateKey(Input::Key& key)
 	{
-		if (isKeyDown(key.keyCode))
+		if (GetFocus())
 		{
-			updateKeyDown(key);
+			if (isKeyDown(key.keyCode))
+				updateKeyDown(key);
+			else
+				updateKeyUp(key);
+
+			getMousePositionByWindow();
+
 		}
 		else
 		{
-			updateKeyUp(key);
+			Clearkeys();
 		}
 	}
 
@@ -83,5 +94,27 @@ namespace study
 			key.state = ekeyState::NONE;
 		}
 		key.bPressed = false;
+	}
+
+	void Input::getMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(app.GetHwnd(), &mousePos);
+
+		mMousePos.x = mousePos.x;
+		mMousePos.y = mousePos.y;
+	}
+
+	void Input::Clearkeys()
+	{
+		for (Key& key : Keys)
+		{
+			if (key.state == ekeyState::DOWN || key.state == ekeyState::PRESSED)
+				key.state = ekeyState::UP;
+			else if (key.state == ekeyState::UP)
+				key.state = ekeyState::NONE;
+			key.bPressed = false;
+		}
 	}
 }

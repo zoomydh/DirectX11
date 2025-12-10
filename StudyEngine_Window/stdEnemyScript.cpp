@@ -29,7 +29,7 @@ namespace study
 		switch (mState)
 		{
 		case study::EnemyScript::eState::SITDOWN:
-			sitDOwn();
+			sitDown();
 			break;
 		case study::EnemyScript::eState::WALK:
 			move();
@@ -51,7 +51,7 @@ namespace study
 	void EnemyScript::Render(HDC hdc)
 	{
 	}
-	void EnemyScript::sitDOwn()
+	void EnemyScript::sitDown()
 	{
 		mTime += Time::GetDeltaTime();
 		if (mTime > 3.0f)

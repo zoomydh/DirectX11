@@ -32,7 +32,7 @@ namespace study
 		void Render(HDC hdc)  override;
 
 	private:
-		void sitDOwn();
+		void sitDown();
 		void move();
 		void PlayWalkAnimationByDirection(eDirection dir);
 		void translate(Transform* tr);

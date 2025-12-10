@@ -8,9 +8,10 @@ namespace study
 	public:
 		enum class eState
 		{
-			SITDOWN,
+			IDLE,
 			WALK,
 			SLEEP,
+			GIVEWATER,
 			ATTACK
 		};
 
@@ -22,8 +23,9 @@ namespace study
 		void Render(HDC hdc)  override;
 
 	private:
-		void sitDOwn();
+		void idle();
 		void move();
+		void givewater();
 
 	private:
 		eState mState;
